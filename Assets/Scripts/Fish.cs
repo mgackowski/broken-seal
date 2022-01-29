@@ -28,7 +28,7 @@ public class Fish : MonoBehaviour
         Vector3 targetPosition = home + (Random.insideUnitSphere * movementRadius);
         Vector3 toTarget = targetPosition - transform.position;
         Quaternion targetRotation = Quaternion.LookRotation(toTarget);
-        Debug.Log(targetRotation);
+        //Debug.Log(targetRotation);
         Vector3 velocity = Vector3.zero;
         float rotationProgress = 0f;
 
@@ -38,7 +38,7 @@ public class Fish : MonoBehaviour
             transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, movementSmoothTime);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, t);
             rotationProgress += Time.deltaTime;
-            Debug.Log(t);
+            //Debug.Log(t);
             yield return null;
         }
         yield return new WaitForSeconds(Random.Range(0f, maxWaitBetweenMovement));

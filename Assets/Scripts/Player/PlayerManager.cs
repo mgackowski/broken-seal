@@ -7,19 +7,21 @@ public class PlayerManager : MonoBehaviour
 {
   protected CharacterController controller;
   protected InputManager inputManager;
-  private Vector3 playerVelocity;
-  [SerializeField ]
-  private bool groundedPlayer;
+  protected Vector3 playerVelocity;
+  [Header("DEBUG")]
   [SerializeField]
-  private float distancePerSecond = 2.0f;
+  protected bool groundedPlayer;
+  [Header("CORE MOVEMENT")]
+  [SerializeField]
+  protected float distancePerSecond = 2.0f;
   [SerializeField]
   private float jumpHeight = 1.0f;
-  private LayerMask notThePlayerLayerMask;
+  private LayerMask groundLayerMask;
 
-  private void Start() {
+  protected virtual void Start() {
     controller = GetComponent<CharacterController>();
     inputManager = GetComponent<InputManager>();
-    notThePlayerLayerMask = ~LayerMask.GetMask("Player");
+    groundLayerMask = ~LayerMask.GetMask("Player", "Crack");
   }
 
   protected virtual void Update() {
@@ -45,7 +47,7 @@ public class PlayerManager : MonoBehaviour
   }
 
   protected void FixedUpdate() {
-    var colliders = Physics.OverlapSphere(new Vector3(transform.position.x, transform.position.y - controller.height / 2, transform.position.z), 0.02f, notThePlayerLayerMask);
+    var colliders = Physics.OverlapSphere(new Vector3(transform.position.x, transform.position.y - controller.height / 2, transform.position.z), 0.02f, groundLayerMask);
     groundedPlayer = colliders.Length > 0;
   }
 }

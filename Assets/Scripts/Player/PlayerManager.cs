@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerManager : MonoBehaviour
 {
   protected CharacterController controller;
+  protected InputManager inputManager;
   private Vector3 playerVelocity;
   [SerializeField ]
   private bool groundedPlayer;
@@ -15,7 +17,8 @@ public class PlayerManager : MonoBehaviour
   private LayerMask notThePlayerLayerMask;
 
   private void Start() {
-    controller = gameObject.GetComponent<CharacterController>();
+    controller = GetComponent<CharacterController>();
+    inputManager = GetComponent<InputManager>();
     notThePlayerLayerMask = ~LayerMask.GetMask("Player");
   }
 
@@ -24,15 +27,17 @@ public class PlayerManager : MonoBehaviour
       playerVelocity.y = Physics.gravity.y;
     }
 
-    Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-    controller.Move(move * Time.deltaTime * distancePerSecond);
+    Vector2 input = inputManager.Movement;
+    Vector3 move = new Vector3(-input.x, 0, -input.y);
+    controller.Move(distancePerSecond * Time.deltaTime * move);
 
     if (move != Vector3.zero) {
       gameObject.transform.forward = move;
     }
 
-    if (Input.GetButtonDown("Jump") && groundedPlayer) {
+    if (inputManager.InteractPressed && groundedPlayer) {
       playerVelocity.y = Mathf.Sqrt(jumpHeight * -3.0f * Physics.gravity.y);
+      inputManager.InteractionPerformed();
     }
 
     playerVelocity.y += Physics.gravity.y * Time.deltaTime;

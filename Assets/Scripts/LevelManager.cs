@@ -13,7 +13,7 @@ public class LevelManager : MonoBehaviour
   private Vector3 playableAreaSize = new Vector3(10, 10, 10);
   private Bounds playableArea;
 
-  private void Start() {
+  private void Awake() {
     instance = this;
     playableArea = new Bounds(Vector3.zero, instance.playableAreaSize);
   }

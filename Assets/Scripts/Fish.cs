@@ -19,6 +19,7 @@ public class Fish : MonoBehaviour
     {
         Swimming,
         Thrown,
+        Surfacing,
         Surfaced
     }
 
@@ -87,6 +88,32 @@ public class Fish : MonoBehaviour
 
     }
 
+    private IEnumerator Surface(Vector3 holePosition)
+    {
+        state = State.Surfacing;
+
+        Vector3 destination = holePosition;
+        Vector2 offset = Random.insideUnitCircle.normalized;
+        destination.x += offset.x;
+        destination.z += offset.y;
+        Vector3 midpoint = (transform.position + destination) / 2;
+        midpoint.y += 2f; // How high the fish will fly
+        List<Vector3> points = CreateCurve(transform.position, midpoint, destination, 50);
+
+        if (points.Count > 0)
+        {
+            int index = 0;
+            while (index < points.Count)
+            {
+                transform.position = points[index];
+                index++;
+                yield return new WaitForFixedUpdate();
+            }
+        }
+        state = State.Surfaced;
+
+    }
+
     private IEnumerator Swim()
     {
         Vector3 targetPosition = home + (Random.insideUnitSphere * movementRadius);
@@ -109,13 +136,31 @@ public class Fish : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("IceSheet"))
+        if(state == State.Thrown && other.gameObject.CompareTag("Hole"))
         {
-            Debug.Log("Hit ice");
             StopAllCoroutines();
-            StartCoroutine("Descend");
-
+            StartCoroutine(Surface(other.transform.position));
         }
+        else if(state == State.Thrown && other.gameObject.CompareTag("IceSheet"))
+        {
+            StopAllCoroutines();
+            StartCoroutine(Descend());
+        }
+    }
+
+    private List<Vector3> CreateCurve(Vector3 p1, Vector3 p2, Vector3 p3, int smoothness)
+    {
+        float t = 0f;
+        float step = 1f / smoothness;
+        List<Vector3> result = new List<Vector3>();
+        Vector3 newPoint = new Vector3();
+        for (int i = 0; i < smoothness; i++)
+        {
+            newPoint = (1 - t) * (1 - t) * p1 + 2 * (1 - t) * t * p2 + t * t * p3;
+            result.Add(newPoint);
+            t += step;
+        }
+        return result;
     }
 
 }

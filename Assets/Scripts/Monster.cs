@@ -8,15 +8,27 @@ public class Monster : MonoBehaviour
     public float verticalMovementRange = 0.1f;
     public float verticalMovementSpeed = 1f;
     public float rotationSpeed = 0.2f;
+    public float maxApproachSpeed = 0.0005f;
+    public float maxDistanceFromHome = 1f;
+
+    [Header("Set at runtime")]
+    public State state = State.Waiting;
+
+    public enum State
+    {
+        Approaching,
+        Relocating,
+        Waiting
+    }
 
     private float floatLevel;
-    private float homePosition;
-
+    private Vector3 homePosition;
     private Transform playerTransform;
 
     void Start()
     {
         floatLevel = transform.position.y;
+        homePosition = transform.position;
         playerTransform = GameObject.FindGameObjectWithTag("PlayerBottom").transform;
 
         StartCoroutine(FacePlayer());
@@ -29,27 +41,32 @@ public class Monster : MonoBehaviour
         position.y = floatLevel + Mathf.Sin(Time.time * verticalMovementSpeed) * verticalMovementRange;
         transform.position = position;
 
+        if (state == State.Approaching)
+        {
+            Vector3 originalPosition = position;
+            position += transform.forward * maxApproachSpeed;
+            Vector3 newDistance = position - homePosition;
+            if (newDistance.magnitude <= maxDistanceFromHome)
+            {
+                transform.position = position;
+            } 
+        }
+
+        if (state == State.Relocating)
+        {
+            //
+        }
+
     }
 
     private IEnumerator FacePlayer()
     {
         while(true)
-        {
-            //Vector3 targetPosition = home + (Random.insideUnitSphere * movementRadius);
+        {;
             Vector3 toTarget = playerTransform.position - transform.position;
             Quaternion targetRotation = Quaternion.LookRotation(toTarget);
-            //Debug.Log(targetRotation);
-            //Vector3 velocity = Vector3.zero;
-            //float rotationProgress = 0f;
-
-            //float t = rotationProgress / rotationDuration;
-            //transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, t);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed);
-            //    rotationProgress += Time.deltaTime;
             yield return null;
-            //}
-            //yield return new WaitForSeconds(Random.Range(0f, maxWaitBetweenMovement));
-            //StartCoroutine(Swim());
         }
 
     }

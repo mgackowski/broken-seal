@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Player1Manager : PlayerManager
 {
+  public PlayerAudioController audioController;
+
   [Header("BELLY FLOP")]
   [SerializeField]
   private float flopMultiplierToGravity = 2;
@@ -50,6 +52,7 @@ public class Player1Manager : PlayerManager
       playerVelocity.y += flopMultiplierToGravity * Physics.gravity.y;
       inputManager.InteractionPerformed();
       flopping = true;
+      audioController.PlaySound(0);
     }
 
     if (inputManager.InteractPressed && groundedPlayer) {
@@ -73,6 +76,16 @@ public class Player1Manager : PlayerManager
     }
 
     ApplyVelocity();
+
+
+    if (inputManager.Movement.magnitude > 0)
+        {
+            audioController.PlaySound(1);
+        }
+    else
+        {
+            audioController.StopSound();
+        }
   }
 
   private void OnControllerColliderHit(ControllerColliderHit hit) {

@@ -23,6 +23,7 @@ public class HUD : MonoBehaviour
 
     if (LevelManager.Lives < lives.childCount) {
       Destroy(lives.GetChild(lives.childCount - 1).gameObject);
+            GetComponent<Animator>().SetTrigger("LifeLost");
     }
   }
 }

@@ -297,6 +297,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Seal9 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: a0405ba7c76c9fc45808d8a0b2f579bc, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 9eb78e336e1f863488cc33f9ec13a926, type: 2}
+    - target: {fileID: 5866666021909216657, guid: a0405ba7c76c9fc45808d8a0b2f579bc, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0405ba7c76c9fc45808d8a0b2f579bc, type: 3}
 --- !u!4 &7688723863301731923 stripped

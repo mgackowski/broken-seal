@@ -15,11 +15,14 @@ public class PlayerManager : MonoBehaviour
   [SerializeField]
   protected float distancePerSecond = 2.0f;
   private LayerMask groundLayerMask;
+  protected Animator anim;
+
 
   protected virtual void Start() {
     controller = GetComponent<CharacterController>();
     inputManager = GetComponent<InputManager>();
     groundLayerMask = ~LayerMask.GetMask("Player", "Crack");
+    anim = GetComponentInChildren<Animator>();
   }
 
   protected void CoreUpdate() {

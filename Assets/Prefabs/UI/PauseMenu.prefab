@@ -100,10 +100,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0, g: 0.111355886, b: 0.23584908, a: 1}
-    m_HighlightedColor: {r: 0, g: 0.16893335, b: 0.36200002, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0.4509804}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0, g: 0.20206667, b: 0.433, a: 1}
-    m_SelectedColor: {r: 0, g: 0.2846667, b: 0.61, a: 1}
+    m_SelectedColor: {r: 0.43137258, g: 0.80392164, b: 0.73333335, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -215,15 +215,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: RESUME
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 77928873f8156684abe0edd28a01ebd3, type: 2}
+  m_sharedMaterial: {fileID: 5497133686768120493, guid: 77928873f8156684abe0edd28a01ebd3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4293830082
-  m_fontColor: {r: 0.76177603, g: 0.64760596, b: 0.9339623, a: 1}
+    rgba: 4287063392
+  m_fontColor: {r: 0.37647063, g: 0.39607847, b: 0.5294118, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -426,8 +426,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: QUIT
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 77928873f8156684abe0edd28a01ebd3, type: 2}
+  m_sharedMaterial: {fileID: 5497133686768120493, guid: 77928873f8156684abe0edd28a01ebd3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -593,10 +593,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0, g: 0.111355886, b: 0.23584908, a: 1}
-    m_HighlightedColor: {r: 0, g: 0.16893335, b: 0.36200002, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0.4509804}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0, g: 0.20206667, b: 0.433, a: 1}
-    m_SelectedColor: {r: 0, g: 0.2846667, b: 0.61, a: 1}
+    m_SelectedColor: {r: 0.45882356, g: 0.8980393, b: 0.76470596, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1

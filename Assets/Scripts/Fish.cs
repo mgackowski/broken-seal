@@ -41,6 +41,7 @@ public class Fish : MonoBehaviour
 
     public void Throw()
     {
+        home = new Vector3(home.x, home.y - 0.5f, home.z);
         StopAllCoroutines();
         state = State.Thrown;
         StartCoroutine(Ascend());
@@ -124,6 +125,7 @@ public class Fish : MonoBehaviour
         {
             StopAllCoroutines();
             StartCoroutine(Surface(other.transform.position));
+            other.gameObject.GetComponent<HoleManager>().Splash();
         }
         else if(state == State.Thrown && other.gameObject.CompareTag("IceSheet"))
         {

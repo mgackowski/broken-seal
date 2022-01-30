@@ -45,7 +45,7 @@ public class Monster : MonoBehaviour
         if (state == State.Approaching)
         {
             Vector3 originalPosition = position;
-            position += transform.forward * maxApproachSpeed;
+            position += transform.forward * maxApproachSpeed * Time.deltaTime;
             Vector3 newDistance = position - homePosition;
             if (newDistance.magnitude <= maxDistanceFromHome)
             {

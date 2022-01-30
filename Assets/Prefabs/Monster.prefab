@@ -4912,7 +4912,7 @@ MonoBehaviour:
   verticalMovementRange: 0.1
   verticalMovementSpeed: 1
   rotationSpeed: 0.2
-  maxApproachSpeed: 0.0005
+  maxApproachSpeed: 0.2
   maxDistanceFromHome: 1
   state: 0
   hit: 0

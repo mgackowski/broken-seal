@@ -21,12 +21,15 @@ public class Player2Manager : PlayerManager
   private void Update() {
     CoreUpdate();
 
+    anim.SetFloat("Swim speed", inputManager.Movement.magnitude);
+
     if (inputManager.InteractPressed && fishes > 0) {
       fishes -= 1;
       var spawnPos = new Vector3(transform.position.x, transform.position.y + controller.height / 2 + 0.5f, transform.position.z);
       var fishGO = Instantiate(fishPrefab, spawnPos, Quaternion.identity);
       var fish = fishGO.GetComponent<Fish>();
       fish.Throw();
+      anim.SetTrigger("Bellyflop");
     }
     inputManager.InteractionPerformed();
     ApplyVelocity();

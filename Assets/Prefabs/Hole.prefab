@@ -257,6 +257,7 @@ GameObject:
   - component: {fileID: 2683751064966011718}
   - component: {fileID: 2683751064966011716}
   - component: {fileID: -2568479807280259866}
+  - component: {fileID: 4685154992273103721}
   m_Layer: 6
   m_Name: Hole
   m_TagString: Hole
@@ -404,3 +405,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4685154992273103721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2683751064966011712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2b3ddab33ab781449fd0e54349404b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  splashPrefab: {fileID: 6062912039619873021, guid: 4d39729ca923e454eb3af7901ca7631a, type: 3}

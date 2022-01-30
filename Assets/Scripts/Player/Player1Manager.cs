@@ -43,6 +43,8 @@ public class Player1Manager : PlayerManager
   private void Update() {
     CoreUpdate();
 
+    anim.SetFloat("Swim speed", inputManager.Movement.magnitude);
+
     distancePerSecond -= speedFalloff * Time.deltaTime;
     if (distancePerSecond < minSpeed) {
       distancePerSecond = minSpeed;
@@ -53,6 +55,7 @@ public class Player1Manager : PlayerManager
       inputManager.InteractionPerformed();
       flopping = true;
       audioController.PlaySound(0);
+      anim.SetTrigger("Bellyflop");
     }
 
     if (inputManager.InteractPressed && groundedPlayer) {

@@ -17,6 +17,14 @@ public class HideWhenUnlit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GetComponent<Fish>() != null)
+        {
+            if (GetComponent<Fish>().state != Fish.State.Swimming)
+            {
+                return;
+            }
+        }
+
         bool illuminated = false;
         foreach (GameObject light in GameObject.FindGameObjectsWithTag("LitArea"))
         {

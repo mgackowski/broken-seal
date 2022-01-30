@@ -11,6 +11,11 @@ public class Player2Manager : PlayerManager
   [SerializeField]
   private GameObject fishPrefab;
 
+  public int Fishes
+  {
+    get { return fishes; }
+  }
+
   private void Update() {
     CoreUpdate();
 

@@ -8,7 +8,7 @@ public class LevelManager : MonoBehaviour
 {
   private static LevelManager instance;
 
-  private int score = 0;
+  private float timeSinceStart = 0;
   [Header("LIVES")]
   [SerializeField]
   private int lives = 3;
@@ -19,10 +19,6 @@ public class LevelManager : MonoBehaviour
   [SerializeField]
   private Vector3 playableAreaCentre = new Vector3(0, 0, 0);
   private Bounds playableArea;
-
-  [Header("SCORE")]
-  [SerializeField]
-  private int fishScore = 10;
 
   private PlayerInput[] playerInputs;
   private PauseMenu pauseMenu;
@@ -38,6 +34,10 @@ public class LevelManager : MonoBehaviour
     instance = this;
   }
 
+  private void Update() {
+    timeSinceStart += Time.deltaTime;
+  }
+
   public static Bounds PlayableArea
   {
     get
@@ -46,11 +46,11 @@ public class LevelManager : MonoBehaviour
     }
   }
 
-  public static int Score
+  public static float Seconds
   {
     get
     {
-      return instance.score;
+      return instance.timeSinceStart;
     }
   }
 
@@ -67,10 +67,6 @@ public class LevelManager : MonoBehaviour
     if (instance.lives < 1) {
       EndScreen.Show();
     }
-  }
-
-  public static void CollectedFish() {
-    instance.score += instance.fishScore;
   }
 
   public static void EnablePlayer() {

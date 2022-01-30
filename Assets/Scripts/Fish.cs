@@ -14,6 +14,7 @@ public class Fish : MonoBehaviour
 
     [Header("Set at runtime")]
     public State state = State.Swimming;
+    public bool collected = false;
 
     public enum State
     {
@@ -33,23 +34,6 @@ public class Fish : MonoBehaviour
             StartCoroutine(Swim());
         }
         else if (state == State.Thrown)
-        {
-            Throw();
-        }
-
-    }
-
-    void Update()
-    {
-
-        
-    }
-
-    void FixedUpdate()
-    {
-        //For the life of me I can't get input from the new input system
-        //Secret keys for testing; delete before release
-        if (Keyboard.current.spaceKey.wasPressedThisFrame)
         {
             Throw();
         }

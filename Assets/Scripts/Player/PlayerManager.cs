@@ -14,8 +14,6 @@ public class PlayerManager : MonoBehaviour
   [Header("CORE MOVEMENT")]
   [SerializeField]
   protected float distancePerSecond = 2.0f;
-  [SerializeField]
-  private float jumpHeight = 1.0f;
   private LayerMask groundLayerMask;
 
   protected virtual void Start() {
@@ -24,7 +22,7 @@ public class PlayerManager : MonoBehaviour
     groundLayerMask = ~LayerMask.GetMask("Player", "Crack");
   }
 
-  protected virtual void Update() {
+  protected void CoreUpdate() {
     if (groundedPlayer && playerVelocity.y < 0) {
       playerVelocity.y = Physics.gravity.y;
     }
@@ -37,12 +35,10 @@ public class PlayerManager : MonoBehaviour
       gameObject.transform.forward = move;
     }
 
-    if (inputManager.InteractPressed && groundedPlayer) {
-      playerVelocity.y = Mathf.Sqrt(jumpHeight * -3.0f * Physics.gravity.y);
-      inputManager.InteractionPerformed();
-    }
-
     playerVelocity.y += Physics.gravity.y * Time.deltaTime;
+  }
+
+  protected void ApplyVelocity() {
     controller.Move(playerVelocity * Time.deltaTime);
   }
 

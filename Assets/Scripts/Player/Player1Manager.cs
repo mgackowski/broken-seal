@@ -26,7 +26,8 @@ public class Player1Manager : PlayerManager
   private float speedFalloff = 1f;
   [SerializeField]
   private float fishSpeedBump = 2f;
-  private bool collectedFishThisFrame = false;
+  [SerializeField]
+  private float jumpHeight = 1.0f;
 
   private LayerMask cracksLayerMask;
   private bool flopping = false;
@@ -37,9 +38,8 @@ public class Player1Manager : PlayerManager
     distancePerSecond = startingSpeed;
   }
 
-  protected override void Update() {
-    base.Update();
-    collectedFishThisFrame = false;
+  private void Update() {
+    CoreUpdate();
 
     distancePerSecond -= speedFalloff * Time.deltaTime;
     if (distancePerSecond < minSpeed) {
@@ -50,6 +50,11 @@ public class Player1Manager : PlayerManager
       playerVelocity.y += flopMultiplierToGravity * Physics.gravity.y;
       inputManager.InteractionPerformed();
       flopping = true;
+    }
+
+    if (inputManager.InteractPressed && groundedPlayer) {
+      playerVelocity.y = Mathf.Sqrt(jumpHeight * -3.0f * Physics.gravity.y);
+      inputManager.InteractionPerformed();
     }
 
     if (flopping && groundedPlayer) {
@@ -66,13 +71,16 @@ public class Player1Manager : PlayerManager
       }
       flopping = false;
     }
+
+    ApplyVelocity();
   }
 
   private void OnControllerColliderHit(ControllerColliderHit hit) {
-    if (hit.collider.CompareTag("Collectible") && !collectedFishThisFrame) {
+    if (hit.collider.CompareTag("Collectible") && !hit.collider.gameObject.GetComponent<Fish>().collected) {
       Destroy(hit.collider.gameObject);
-      collectedFishThisFrame = true;
       distancePerSecond += fishSpeedBump;
+      LevelManager.CollectedFish();
+      hit.collider.gameObject.GetComponent<Fish>().collected = true;
       if (distancePerSecond > maxSpeed) {
         distancePerSecond = maxSpeed;
       }

@@ -9,6 +9,8 @@ TagManager:
   - Collectible
   - Enemy
   - Hole
+  - IceSheet
+  - LitArea
   layers:
   - Default
   - TransparentFX

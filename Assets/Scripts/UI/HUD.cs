@@ -18,7 +18,7 @@ public class HUD : MonoBehaviour
   }
 
   private void Update() {
-    score.SetText(LevelManager.Score.ToString());
+    score.SetText(LevelManager.Seconds.ToString("N0"));
     fishes.SetText(player2.Fishes.ToString());
 
     if (LevelManager.Lives < lives.childCount) {

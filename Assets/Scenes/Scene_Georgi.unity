@@ -1872,7 +1872,6 @@ MonoBehaviour:
   lives: 3
   playableAreaSize: {x: 10, y: 1, z: 10}
   playableAreaCentre: {x: 0, y: 0.5, z: 0}
-  fishScore: 10
 --- !u!4 &879332217
 Transform:
   m_ObjectHideFlags: 0

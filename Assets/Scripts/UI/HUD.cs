@@ -8,10 +8,21 @@ public class HUD : MonoBehaviour
   [SerializeField]
   private TextMeshProUGUI score;
   [SerializeField]
-  private TextMeshProUGUI lives;
+  private TextMeshProUGUI fishes;
+  [SerializeField]
+  private Transform lives;
+  private Player2Manager player2;
+
+  private void Start() {
+    player2 = FindObjectOfType<Player2Manager>();
+  }
 
   private void Update() {
     score.SetText(LevelManager.Score.ToString());
-    lives.SetText(LevelManager.Lives.ToString());
+    fishes.SetText(player2.Fishes.ToString());
+
+    if (LevelManager.Lives < lives.childCount) {
+      Destroy(lives.GetChild(lives.childCount - 1).gameObject);
+    }
   }
 }

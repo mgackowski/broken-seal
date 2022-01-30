@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Player2Manager : PlayerManager
 {
-  [Header("DEBUG")]
+    public PlayerAudioController audioController;
+
+    [Header("DEBUG")]
   [SerializeField]
   private int fishes = 0;
 
@@ -34,6 +36,7 @@ public class Player2Manager : PlayerManager
     if (hit.collider.CompareTag("Enemy") && !hit.collider.gameObject.GetComponent<Monster>().hit) {
       Destroy(hit.collider.gameObject);
       LevelManager.LoseLife();
+            audioController.PlaySound(0);
       hit.collider.gameObject.GetComponent<Monster>().hit = true;
     }
 

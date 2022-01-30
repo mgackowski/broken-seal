@@ -70,6 +70,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundedPlayer: 0
   distancePerSecond: 3
+  audioController: {fileID: 7169699143840145392}
   fishes: 0
   fishPrefab: {fileID: 759953890303848522, guid: 3e0faf09328a9124f9a684f9f3b7b34b, type: 3}
 --- !u!114 &7870441536922740523

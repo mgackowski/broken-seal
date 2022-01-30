@@ -26,7 +26,7 @@ public class EndScreen : MonoBehaviour
     EventSystem.current.SetSelectedGameObject(instance.button);
     Destroy(FindObjectOfType<HUD>());
     wrapper.SetActive(true);
-    text.SetText($"Survived for {LevelManager.Seconds} seconds");
+    text.SetText($"Survived for {Mathf.Floor(LevelManager.Seconds)} seconds");
   }
 
   public void Retry() {

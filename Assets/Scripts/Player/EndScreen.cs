@@ -26,7 +26,7 @@ public class EndScreen : MonoBehaviour
     EventSystem.current.SetSelectedGameObject(instance.button);
     Destroy(FindObjectOfType<HUD>());
     wrapper.SetActive(true);
-    text.SetText($"You got {LevelManager.Score} points");
+    text.SetText($"Score: {LevelManager.Score}");
   }
 
   public void Retry() {

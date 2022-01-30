@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.36788553, g: 0.48660582, b: 0.6267164, a: 1}
+  m_IndirectSpecularColor: {r: 0.36354685, g: 0.50978035, b: 0.6501025, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1819,6 +1819,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 946238207}
   m_CullTransparentMesh: 1
+--- !u!1001 &973524467
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2449573762791504168, guid: 4b9fb8f39f11187499554694f432a44d, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449573762791504168, guid: 4b9fb8f39f11187499554694f432a44d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 525.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449573762791504168, guid: 4b9fb8f39f11187499554694f432a44d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 295.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449573762791504168, guid: 4b9fb8f39f11187499554694f432a44d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449573762791504168, guid: 4b9fb8f39f11187499554694f432a44d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449573762791504168, guid: 4b9fb8f39f11187499554694f432a44d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449573762791504168, guid: 4b9fb8f39f11187499554694f432a44d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449573762791504168, guid: 4b9fb8f39f11187499554694f432a44d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449573762791504168, guid: 4b9fb8f39f11187499554694f432a44d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449573762791504168, guid: 4b9fb8f39f11187499554694f432a44d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449573762791504168, guid: 4b9fb8f39f11187499554694f432a44d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449573762791504170, guid: 4b9fb8f39f11187499554694f432a44d, type: 3}
+      propertyPath: m_Name
+      value: MenuMusic
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4b9fb8f39f11187499554694f432a44d, type: 3}
 --- !u!1 &992613754
 GameObject:
   m_ObjectHideFlags: 0

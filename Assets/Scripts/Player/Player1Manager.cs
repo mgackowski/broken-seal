@@ -79,7 +79,6 @@ public class Player1Manager : PlayerManager
     if (hit.collider.CompareTag("Collectible") && !hit.collider.gameObject.GetComponent<Fish>().collected) {
       Destroy(hit.collider.gameObject);
       distancePerSecond += fishSpeedBump;
-      LevelManager.CollectedFish();
       hit.collider.gameObject.GetComponent<Fish>().collected = true;
       if (distancePerSecond > maxSpeed) {
         distancePerSecond = maxSpeed;

@@ -8,11 +8,12 @@ public class Monster : MonoBehaviour
     public float verticalMovementRange = 0.1f;
     public float verticalMovementSpeed = 1f;
     public float rotationSpeed = 0.2f;
-    public float maxApproachSpeed = 0.0005f;
+    public float maxApproachSpeed = 0.005f;
     public float maxDistanceFromHome = 1f;
 
     [Header("Set at runtime")]
     public State state = State.Waiting;
+    public bool hit = false;
 
     public enum State
     {

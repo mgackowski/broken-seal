@@ -4,7 +4,38 @@ using UnityEngine;
 
 public class Player2Manager : PlayerManager
 {
-  protected override void Update() {
-    base.Update();
+  [Header("DEBUG")]
+  [SerializeField]
+  private int fishes = 0;
+
+  [SerializeField]
+  private GameObject fishPrefab;
+
+  private void Update() {
+    CoreUpdate();
+
+    if (inputManager.InteractPressed && fishes > 0) {
+      fishes -= 1;
+      var spawnPos = new Vector3(transform.position.x, transform.position.y + controller.height / 2 + 0.5f, transform.position.z);
+      var fishGO = Instantiate(fishPrefab, spawnPos, Quaternion.identity);
+      var fish = fishGO.GetComponent<Fish>();
+      fish.Throw();
+    }
+    inputManager.InteractionPerformed();
+    ApplyVelocity();
+  }
+
+  private void OnControllerColliderHit(ControllerColliderHit hit) {
+    if (hit.collider.CompareTag("Enemy") && !hit.collider.gameObject.GetComponent<Monster>().hit) {
+      Destroy(hit.collider.gameObject);
+      LevelManager.LoseLife();
+      hit.collider.gameObject.GetComponent<Monster>().hit = true;
+    }
+
+    if (hit.collider.CompareTag("Collectible") && !hit.collider.gameObject.GetComponent<Fish>().collected) {
+      Destroy(hit.collider.gameObject);
+      fishes += 1;
+      hit.collider.gameObject.GetComponent<Fish>().collected = true;
+    }
   }
 }

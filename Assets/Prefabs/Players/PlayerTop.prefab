@@ -71,8 +71,8 @@ MonoBehaviour:
   jumpHeight: 1
   flopMultiplierToGravity: 2
   flopVelocityThreshold: -3.5
-  crackPrefab: {fileID: 8804545449310689935, guid: afa05ec3b968df647809fd438a9c4076, type: 3}
-  holePrefab: {fileID: 4806584510544966701, guid: 101009de9b1eb93479879bdab712ace0, type: 3}
+  crackPrefab: {fileID: 2683751064966011712, guid: 4803e0d1d8cada54cbcf057fcf526666, type: 3}
+  holePrefab: {fileID: 2683751064966011712, guid: 516363616f7c82c4b873555349c82f4b, type: 3}
   startingSpeed: 5
   minSpeed: 2
   maxSpeed: 10

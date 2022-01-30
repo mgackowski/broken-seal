@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class PauseMenu : MonoBehaviour
 {
   [SerializeField]
   private GameObject pauseMenuWrapper;
+  [SerializeField]
+  private GameObject firstButton;
   private PlayerInput[] playerInputs;
 
   private void Start() {
@@ -27,34 +30,15 @@ public class PauseMenu : MonoBehaviour
 
   private void Toggle() {
     if (!pauseMenuWrapper.activeSelf) {
-      DisablePlayer();
+      LevelManager.DisablePlayer();
       Time.timeScale = 0;
+      EventSystem.current.SetSelectedGameObject(firstButton);
     } else {
-      EnablePlayer();
+      LevelManager.EnablePlayer();
       Time.timeScale = 1;
     }
 
     pauseMenuWrapper.SetActive(!pauseMenuWrapper.activeSelf);
-  }
-
-  private void EnablePlayer() {
-    foreach (var input in playerInputs) {
-      if (input.gameObject == gameObject) {
-        input.actions.FindActionMap("PauseMenuNavigation").Disable();
-        continue;
-      }
-      input.actions.FindActionMap(input.defaultActionMap).Enable();
-    }
-  }
-
-  private void DisablePlayer() {
-    foreach (var input in playerInputs) {
-      if (input.gameObject == gameObject) {
-        input.actions.FindActionMap("PauseMenuNavigation").Enable();
-        continue;
-      }
-      input.actions.FindActionMap(input.defaultActionMap).Disable();
-    }
   }
 
   public void Resume() {

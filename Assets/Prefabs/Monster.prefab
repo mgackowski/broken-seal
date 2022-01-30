@@ -43,7 +43,6 @@ GameObject:
   - component: {fileID: 603004971849543184}
   - component: {fileID: 603004971849543189}
   - component: {fileID: 603004971849543186}
-  - component: {fileID: 603004971849543187}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -116,19 +115,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &603004971849543187
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 603004971849543185}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &603004972709942225
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,6 +125,7 @@ GameObject:
   m_Component:
   - component: {fileID: 603004972709942224}
   - component: {fileID: 603004972709942227}
+  - component: {fileID: 3556713656300909939}
   m_Layer: 0
   m_Name: Monster
   m_TagString: Enemy
@@ -180,3 +167,16 @@ MonoBehaviour:
   maxApproachSpeed: 0.0005
   maxDistanceFromHome: 1
   state: 0
+--- !u!65 &3556713656300909939
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 603004972709942225}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.66, y: 0.58, z: 0.55}
+  m_Center: {x: 0, y: 0, z: 0}

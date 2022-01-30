@@ -756,6 +756,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuWrapper: {fileID: 2365822933940581656}
+  firstButton: {fileID: 2365822933740257367}
 --- !u!114 &2365822933835405590
 MonoBehaviour:
   m_ObjectHideFlags: 0
